@@ -22,8 +22,8 @@
 		<div class="container-fluid well well-sm">
 			<div class="col-md-2 col-xs-6">
 				<center>
-						<div style="border-style: solid;border-radius: 10px; ;border-width: 2px; border-color: #ff931e;">
-							<a href="#" title="Abrir Lista de Documentos"><img src="../../img/root-128x118.png" "></a>
+						<div style="border-style: solid;border-radius: 10px; border-width: 2px; border-color: #ff931e;">
+							<a href="#" title="Abrir Lista de Documentos"><img src="../../img/root-128x118.png"></a>
 							<a href="#" title="Abrir Lista de Documentos"><img src="../../img/Ico-documents.png"></a>
 					 		<a href="#" title="Nova Ficha"><img src="../../img/card-on-2.png"></a>
 					 		Condomínios
