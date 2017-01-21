@@ -7,6 +7,7 @@
 <!-- SCRIPTS USADOS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!-- JQUERY -->
 <script src="../../bootstrap/js/bootstrap.min.js"></script><!-- NUCLEO BOOTSTRAP -->
+<script src="../../js/areaTrabalho.js" type="text/javascript" />
 <script src="../../js/arvorePastas.js" type="text/javascript"></script> <!-- JS PARA A LISTAGEM DE PASTAS PAGINA PRINCIPAL -->
 <script src="../../js/checkbox.js" type="text/javascript"></script> <!-- JS PARA FAZER COM QUE SEJA SELECIONADOS TODOS OS ITEM CHECKBOX -->
 <!-- SCRIPTS FIM -->
