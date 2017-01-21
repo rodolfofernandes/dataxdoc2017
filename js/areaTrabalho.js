@@ -1,6 +1,6 @@
 
 function UpdateContents(){
-    var targetUrl = "../_modulos/areaTrabalho/listarArquivos.php";
+    var targetUrl = "../areaTrabalho/listarArquivos.php";
     var callParameters = '';
     $.ajax({ type: 'POST', url: targetUrl, data: callParameters, success: function(response) {
         var uploadedFiles = document.getElementById("uploadedFiles");

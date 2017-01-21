@@ -166,20 +166,9 @@
 							<form name="form">
 							<label style="text-decoration: underline;" id="todos">Selecionar todos</label>
 							<hr>
-							<div class="form-group" >
-							<br>
-				            <input type="checkbox" name="fancy-checkbox-default" id="mycheckbox" autocomplete="off" />
-				            <div class="btn-group">
-				                <label for="fancy-checkbox-default" class="btn btn-default">
-				                    <span class="glyphicon glyphicon-ok"></span>
-				                    <span> </span>
-				                </label>
-				                <label for="fancy-checkbox-default" class="btn btn-default active ]" style="width: 420px;">
-				                    Default Checkbox
-				                </label>
-				            </div>
-				        </div>		       
-				       </form> 
+							<div class="form-group" id="uploadedFiles">
+				        	</div>
+				       		</form>
 					</div>		
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
