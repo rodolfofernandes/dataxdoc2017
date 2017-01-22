@@ -2,7 +2,7 @@
 
     $filesMoved = 0;
     foreach ($_FILES as $file){
-        if (!move_uploaded_file($file['tmp_name'], '../_tempDir/'.$file['name'])){
+        if (!move_uploaded_file($file['tmp_name'], '../areaTrabalho/_tempDir/'.$file['name'])){
             print_r(error_get_last());
             exit;
         }
