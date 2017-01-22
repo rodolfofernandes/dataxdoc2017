@@ -1,6 +1,6 @@
 <?php
 
-    $tempDir = "../areaTrabalho/_tempDir";
+    $tempDir = "../areaTrabalho/_tempDir/";
 
     // Lista os arquivos do diretório temporário e retorna uma lista em formato JSON
     $fileArray = array();

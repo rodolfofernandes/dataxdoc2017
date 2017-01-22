@@ -1,6 +1,6 @@
 <?php
 
-    $tempDir = "../areaTrabalho/_tempDir";
+    $tempDir = "../areaTrabalho/_tempDir/";
 
     if( !isset($_POST['filesChecked']) ){
         echo "Selecione os arquivos que deseja excluir";
