@@ -14,3 +14,13 @@ function UpdateContents(){
     }
     });
 }
+
+function DeleteFiles(filesChecked){
+    var fileArray = new Array();
+    filesChecked.each(function(index, element) {
+        fileArray.push(btoa(element.name));
+    });
+    var targetUrl = "../areaTrabalho/removerArquivo.php";
+    var callParameters = { 'filesChecked[]': fileArray };
+    $.ajax({ type: 'POST', url: targetUrl, data: callParameters, success: function(response) { alert(response); UpdateContents(); }, async: false });
+}
