@@ -152,7 +152,7 @@
 							<form method="post" action="upload.php">
 							<label class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"></i><input data-toggle="modal" data-target="#centerModal"  style="display: none;"></label>
 							<a href="#" class="btn btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
-							<a href="#" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
+							<a href="#" class="btn btn-danger" id="fileDump"><i class="fa fa-trash" aria-hidden="true"></i></a>
 							</h4>
 							
 							</form>

@@ -24,8 +24,12 @@
     <!-- Inicializa o script -->
     <script type="text/javascript" >
         $(document).ready(function() {
-			$('#myModal2').on('show.bs.modal', function () {
+			$('#myModal2').on('show.bs.modal', function() {
 				UpdateContents();
+			});
+
+			$('#fileDump').on('click', function() {
+				DeleteFiles($('#uploadedFiles input[type=checkbox]:checked'));
 			});
         });
     </script>
