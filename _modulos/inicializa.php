@@ -28,6 +28,10 @@
 				UpdateContents();
 			});
 
+			$('#fileUpload').on('click', function() {
+				FileUpload();
+			});
+
 			$('#fileDump').on('click', function() {
 				DeleteFiles($('#uploadedFiles input[type=checkbox]:checked'));
 			});

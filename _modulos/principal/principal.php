@@ -150,11 +150,11 @@
 							</div>
 							<div class="col-md-4">
 							<form method="post" action="upload.php">
-							<label class="btn btn-primary"><i class="fa fa-cloud-upload" aria-hidden="true"></i><input data-toggle="modal" data-target="#centerModal"  style="display: none;"></label>
+							<a href="#" class="btn btn-primary" id="fileUpload"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a>
 							<a href="#" class="btn btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
 							<a href="#" class="btn btn-danger" id="fileDump"><i class="fa fa-trash" aria-hidden="true"></i></a>
 							</h4>
-							
+
 							</form>
 							</div>
 							
@@ -190,18 +190,9 @@
                      <h4 class="modal-title" id="myModalLabel">Upload de arquivos</h4>
                 </div>
                 <div class="modal-body">                	
-                	<form method="post" action="upload.php">
-                		<div class="container-fluid">
-							<div class="col-md-6">
-				                <input type="file" name="btnArquivos" multiple/>
-				            </div>
-				            <div class="col-md-4"></div>
-				            <div class="col-md-2">
-				                <input class="btn btn-primary" type="submit" name="enviar">
-			                </div> 
-	                	</div>	
-                	</table>
-               	  </form>
+                	<form method="post" action="../areaTrabalho/upload.php" id="uploadForm">
+                        <input type="file" name="chooseFile" />
+               	    </form>
                 </div>             
             </div>
         </div>
