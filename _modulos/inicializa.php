@@ -31,6 +31,15 @@
 			$('#fileDump').on('click', function() {
 				DeleteFiles($('#uploadedFiles input[type=checkbox]:checked'));
 			});
+
+            var estado = false; // nenhum marcado
+            $('#selectAll').on('click', function() {
+				estado = !estado;
+				var uploadedFiles = $('#uploadedFiles input[type=checkbox]');
+				uploadedFiles.each(function() {
+					$(this).prop("checked", estado);
+				});
+			});
         });
     </script>
 </head>

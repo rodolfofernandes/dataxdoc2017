@@ -164,7 +164,7 @@
 				  
 					<div class="modal-body">	
 							<form name="form">
-							<label style="text-decoration: underline;" id="todos">Selecionar todos</label>
+							<a href="#" id="selectAll">Selecionar todos</a>
 							<hr>
 							<div class="form-group" id="uploadedFiles">
 				        	</div>
