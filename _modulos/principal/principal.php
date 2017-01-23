@@ -191,7 +191,7 @@
                 </div>
                 <div class="modal-body">                	
                 	<form method="post" action="../areaTrabalho/upload.php" id="uploadForm">
-                        <input type="file" name="chooseFile" />
+                        <input type="file" name="chooseFile[]" multiple />
                	    </form>
                 </div>             
             </div>

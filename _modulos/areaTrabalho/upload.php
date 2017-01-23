@@ -1,8 +1,8 @@
 <?php
 
     $filesMoved = 0;
-    foreach ($_FILES as $file){
-        if (!move_uploaded_file($file['tmp_name'], '../areaTrabalho/_tempDir/'.$file['name'])){
+    foreach ($_FILES['chooseFile']['name'] as $key => $value){
+        if (!move_uploaded_file($_FILES['chooseFile']['tmp_name'][$key], '../areaTrabalho/_tempDir/'.$_FILES['chooseFile']['name'][$key])){
             print_r(error_get_last());
             exit;
         }

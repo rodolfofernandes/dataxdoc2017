@@ -26,7 +26,7 @@ function DeleteFiles(filesChecked){
 }
 
 function FileUpload(){
-    $('#uploadForm input[name=chooseFile]').change(function(event) {
+    $('#uploadForm input[type=file]').change(function(event) {
         event.stopImmediatePropagation();  // Evita que o evento seja disparado várias vezes
 
         var status = '';
@@ -40,7 +40,7 @@ function FileUpload(){
 
         xhr.addEventListener('readystatechange', function() {
             if (xhr.readyState === 4 && xhr.status == 200) {
-                alert('Upload concluído com sucesso');
+                alert(xhr.responseText);  // 'Upload concluído com sucesso'
                 UpdateContents();
             } else {
                 status = xhr.statusText;
@@ -60,5 +60,5 @@ function FileUpload(){
 
         $(this).val(''); // limpa a seleção para o evento ser disparado novamente
     });
-    $('#uploadForm input[name=chooseFile]').trigger('click');
+    $('#uploadForm input[type=file]').trigger('click');
 }
