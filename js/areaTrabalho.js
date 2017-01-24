@@ -18,7 +18,7 @@ function UpdateContents(){
 function DeleteFiles(filesChecked){
     var fileArray = new Array();
     filesChecked.each(function(index, element) {
-        fileArray.push(btoa(element.name));
+        fileArray.push(btoa(element.nextSibling.nodeValue));
     });
     var targetUrl = "../areaTrabalho/removerArquivo.php";
     var callParameters = { 'filesChecked[]': fileArray };
