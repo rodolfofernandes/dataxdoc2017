@@ -1,4 +1,10 @@
 <?php
+        session_start();
+        if($_SESSION['user'] == null)
+       {
+           header("Location: ../acesso/login.php");     
+       }
+
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRA O MENO DO SISTEMA*/
 ?>

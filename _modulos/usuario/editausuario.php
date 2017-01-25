@@ -198,7 +198,7 @@
                             <div class="col-md-6">    
                             </div>
                             <div class="col-md-2">
-                                <a href="desbloquarUsuario.php" class="btn btn-default" <?=$desBloq ?> ><i class="fa fa-unlock-alt"></i> Desbloquear</a>
+                                <a href="desbloquearUsuario.php?id=<?=$id_usuario?>" class="btn btn-default" <?=$desBloq ?> ><i class="fa fa-unlock-alt"></i> Desbloquear</a>
                             </div>
                             <div class="col-md-2">
                                 <a href="editausuario.php?param=1&id=<?=$id_usuario?>" class="btn btn-info" <?=$habilitabtn?>>Redefinir senha</a>

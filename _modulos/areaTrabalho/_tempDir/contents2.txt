@@ -1,2 +1,0 @@
-Esta pasta contem arquivos temporários antes de serem indexados no sistema.
-Preservar a pasta para o correto funcionamento do sistema.

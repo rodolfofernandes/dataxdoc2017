@@ -5,7 +5,7 @@ session_start();
    {
        header("Location: ../acesso/login.php");     
    }
-
+   require '../classes/Usuario.php';
     require("../funcaoBD/usuario.class.php");
   
     $resetaSenha = isset($_GET['param']) ? $_GET['param'] : '';
