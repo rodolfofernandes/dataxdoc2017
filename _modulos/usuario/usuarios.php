@@ -1,17 +1,15 @@
 <?php
 	session_start();
     error_reporting(E_WARNING);
-    if($_SESSION['user'] == null)
-   {
+    if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
-   }
-      
- 
+    }
+
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRA O MENO DO SISTEMA*/
 	require("../funcaoBD/usuario.class.php");
     require_once("../funcaoBD/util.class.php");
-            
+
     $usuarios = consultaTodosUsuariosAtivos();
 
     

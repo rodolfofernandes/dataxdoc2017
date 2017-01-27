@@ -1,14 +1,12 @@
 <?php
-        session_start();
-        if($_SESSION['user'] == null)
-       {
-           header("Location: ../acesso/login.php");     
-       }
+    session_start();
+    if($_SESSION['user'] == null) {
+        header("Location: ../acesso/login.php");     
+    }
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRA O MENO DO SISTEMA*/
 ?>
-
 
 <main>
 	<center>
@@ -157,7 +155,7 @@
 							<div class="col-md-4">
 							<form method="post" action="upload.php">
 							<a href="#" class="btn btn-primary" id="fileUpload"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a>
-							<a href="#" class="btn btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
+							<a href="#" class="btn btn-info" id="fileIndex"><i class="fa fa-floppy-o" aria-hidden="true"></i></a>
 							<a href="#" class="btn btn-danger" id="fileDump"><i class="fa fa-trash" aria-hidden="true"></i></a>
 							</h4>
 

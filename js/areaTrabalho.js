@@ -62,3 +62,7 @@ function FileUpload(){
     });
     $('#uploadForm input[type=file]').trigger('click');
 }
+
+function IndexFiles(){
+    alert('Indexando arquivos...');
+}

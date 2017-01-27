@@ -1,23 +1,19 @@
 <?php
-session_start();
+    session_start();
 
 	if($_SESSION['user'] == null)
-   {
-       header("Location: ../acesso/login.php");     
-   }
-   require '../classes/Usuario.php';
+    {
+        header("Location: ../acesso/login.php");     
+    }
+    require '../classes/Usuario.php';
     require("../funcaoBD/usuario.class.php");
-  
+
     $resetaSenha = isset($_GET['param']) ? $_GET['param'] : '';
     $imgPerfil = consultaImagem($_SESSION['id_usuario']);//Guarda a imagem de perfil
     $usuario = consultaUsuario($_SESSION["id_usuario"]); //traz os dados do usuario conectado
 
-
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRA O MENO DO SISTEMA*/
-
-
-
 ?>
 
 <main>
@@ -110,7 +106,7 @@ session_start();
 							<div class="col-md-3">
 								<div class="input-group">
  								 <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
- 								 <input class="form-control" name="txtSenha" type="password" placeholder="Senha" <?=$habilita?>">
+ 								 <input class="form-control" <?=$habilita?> name="txtSenha" type="password" placeholder="Senha" >
 							</div>
 							</div>
 							<div class="col-md-3">

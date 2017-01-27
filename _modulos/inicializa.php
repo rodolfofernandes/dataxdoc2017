@@ -28,6 +28,10 @@
 				UpdateContents();
 			});
 
+            $('#fileIndex').on('click', function() {
+				IndexFiles();
+			});
+
 			$('#fileUpload').on('click', function() {
 				FileUpload();
 			});
