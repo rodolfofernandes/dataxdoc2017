@@ -1,20 +1,42 @@
 <?php
 	session_start();
-    /*
     error_reporting(E_WARNING);
     if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
     }
-    */
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
-	require("../header.php"); /*TRA O MENO DO SISTEMA*/
+	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
 	require("../funcaoBD/tipoDocumental.class.php");
     require_once("../funcaoBD/util.class.php");
 
     $tiposDocumentais = consultaTiposDocumentais();
 
 ?>
+
+<div class="modal fade" role="dialog" id="novoTipoDocumental">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Criar Novo</h4>
+            </div>
+            <div class="modal-body">
+                <label style="width: 99%;">Nome<br/>
+                    <input type="text" name="nome" value="" style="width: 100%;height:25px;" />
+                </label>
+                <label style="width: 99%;">Descricao<br/>
+                    <input type="text" name="descricao" value="" style="width: 100%;height:25px;" />
+                </label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="InserirModelo();CloseDialog()">Incluir</button>
+                <button type="button" class="btn btn-default" onclick="CloseDialog()">Descartar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <main>
 	<center>
@@ -26,8 +48,8 @@
 			  </div>
 			  <div class="panel-body">
 			  	<div class="container-fluid">
-			  		<div class="col-md-2">
-			  			<a href="novoTipoDocumental.php" class="btn btn-primary"><i class="fa fa-user-plus"></i>Criar Novo</a>
+			  		<div class="col-md-2" >
+			  			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#novoTipoDocumental" ><span class="fa fa-user-plus">Criar Novo</span></a>
 			  		</div>
 			  		<div class="col-md-10">
                     </div>

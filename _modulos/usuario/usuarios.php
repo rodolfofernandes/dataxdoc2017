@@ -6,7 +6,7 @@
     }
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
-	require("../header.php"); /*TRA O MENO DO SISTEMA*/
+	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
 	require("../funcaoBD/usuario.class.php");
     require_once("../funcaoBD/util.class.php");
 

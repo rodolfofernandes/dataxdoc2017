@@ -8,8 +8,8 @@ function consultaTipoDocumental($id)
     $dados = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($dados);
 
-    $nome = $row['nm_usuario'];
-    $data = $row['dt_nascimento'];
+    $nome = $row['nome'];
+    $descricao = $row['descricao'];
 
     return $row;
 }
