@@ -140,16 +140,15 @@
 					        	<a class="btn btn-default fa fa-lock" aria-hidden="true" <?=$usuarios[$i]['usuarioBlq']?> ></a>
 					        	<a class="btn btn-default fa fa-user-circle" aria-hidden="true" <?=$usuarios[$i]['usuarioAtivo']?> ></a>
 					        </td>
-					      </tr>	<?php } ?>				      
+					      </tr>	<?php } ?>
 					    </tbody>
 					  </table>
 			  	</div>
-			</div>		
+			</div>
 		</section>
-	</center>	
+	</center>
 </main>
 
 <?php
 	require("../footer.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
-	
 ?>
