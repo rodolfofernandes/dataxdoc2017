@@ -21,7 +21,7 @@
                         <a href="#" class="btn btn-default" ><img src="../../img/bt-por-indexadores.png"/></a>
                     </div>
                     <div class="col-md-4">
-                        <a href="#" class="btn btn-default"><img src="../../img/bt-por-tipo-documental.png"/></a>
+                        <a href="listarTiposDocumentais.php" class="btn btn-default"><img src="../../img/bt-por-tipo-documental.png"/></a>
                     </div>
                     <div class="col-md-4">
                         <a href="#" class="btn btn-default"><img src="../../img/bt-por-indexadores-por-local-de-guarda.png"/></a>
