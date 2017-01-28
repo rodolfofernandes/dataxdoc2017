@@ -1,9 +1,8 @@
 <?php
+require_once("conexao.php");
 
 function consultaTipoDocumental($id)
 {
-    require("conexao.php");
-    
     $query = "SELECT * FROM tbl_tipodocumental where id_usuario = '$id_usuario'";
     $dados = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($dados);
@@ -16,42 +15,41 @@ function consultaTipoDocumental($id)
 
 function consultaTiposDocumentais()
 {
-    require("conexao.php");
+    global $conn;
+    $resultado = array();
 
     $query = "SELECT * FROM tbl_tipodocumental WHERE excluido = 0";
-    $dados = mysqli_query($conn,$query);
-    $resultado['qtdReg'] = mysqli_num_rows($dados);
-    $i = 0;
-    if  ($resultado['qtdReg'] > 0) {
-        while($row = mysqli_fetch_assoc($dados)) {
-            $resultado[$i] = $row;
-            $i++;
-        }
+    $recordSet = mysqli_query($conn,$query);
+    $recordCount = mysqli_num_rows($recordSet);
+    if ($recordCount == 0) return $resultado;
+
+    $index = 0;
+    while( $record = mysqli_fetch_array($recordSet) ){
+        $resultado[$index]['nome'] = $record['nome'];
+        $resultado[$index]['descricao'] = $record['descricao'];
+        $resultado[$index]['excluido'] = $record['excluido'];
+        $index++;
     }
     return $resultado;
 }
 
 function incluirTipoDocumental($dados)
 {
-    require("conexao.php");
-    $login = $dados['txtLogin'];
+    global $conn;
 
-    $senha = isset($dados['txtPassword']) ? md5(trim($dados['txtPassword'])) : FALSE; 
-    $datetime = date_create()->format('Y-m-d');
-    
-    $sexo = $dados['rblRoles'];
+    $nome = $dados['nome'];
+    $descricao = $dados['descricao'];
+    $excluido = $dados['excluido'];
 
-    $query = "INSERT INTO tbl_tipodocumental (nm_login, cd_senha, ic_ativo, tp_acesso, dt_cadastro) VALUES ('$login','$senha','1','$sexo' , '$datetime' ); ";
-    $dados = mysqli_query($conn,$query);
+    $query = "INSERT INTO tbl_tipodocumental (nome, descricao, excluido) VALUES ('$nome','$descricao','$excluido'); ";
+    $result = mysqli_query($conn,$query);
 
-    return $query;
+    return $result;
 }
 
 function alterarTipoDocumental($id_usuario,$dadosUser)
 {
-    require("conexao.php");
-
-
+ 
 $nome = $dadosUser['txtNome'].' '.$dadosUser['txtSobrenome'];
 $cpf = $dadosUser['txtCPF'];
 $dt_nasc = formatadatabanco($dadosUser['txtNasc']);
@@ -75,8 +73,6 @@ $dados = mysqli_query($conn,$query);
 
 function excluirTipoDocumental($id)
 {
-    require("conexao.php");
-
     $query = "UPDATE tbl_tipodocumental SET ic_ativo = 0 WHERE id_usuario = $id_usuario;";
     $dados = mysqli_query($conn,$query);
 

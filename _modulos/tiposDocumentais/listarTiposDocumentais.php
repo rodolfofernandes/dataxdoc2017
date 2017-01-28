@@ -1,9 +1,11 @@
 <?php
 	session_start();
+	/*
     error_reporting(E_WARNING);
     if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
     }
+    */
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
@@ -17,6 +19,7 @@
 <div class="modal fade" role="dialog" id="novoTipoDocumental">
     <div class="modal-dialog">
 
+        <form method="post" action="novoTipoDocumental.php" >
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">Criar Novo</h4>
@@ -30,10 +33,11 @@
                 </label>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="InserirModelo();CloseDialog()">Incluir</button>
-                <button type="button" class="btn btn-default" onclick="CloseDialog()">Descartar</button>
+                <button type="submit" class="btn btn-primary" >Incluir</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Descartar</button>
             </div>
         </div>
+        </form>
 
     </div>
 </div>
@@ -65,9 +69,24 @@
 					      </tr>
 					    </thead>
 					    <tbody>
-                  <?php
-
-                  ?>
+							<?php
+								foreach($tiposDocumentais as $key => $value){
+							?>
+								<tr>
+									<td>
+										<a class="btn btn-default fa fa-pencil-square-o" style="color: blue;"></a>
+										<a class="btn btn-default fa fa-user-times" style="color: red;"></a>
+									</td>
+									<td>
+										<span><?php echo $value['nome']; ?></span>
+									</td>
+									<td>
+										<span><?php echo $value['descricao']; ?></span>
+									</td>
+								</tr>
+							<?php
+								}
+							?>
 					    </tbody>
 					  </table>
 			  	</div>
@@ -78,4 +97,15 @@
 
 <?php
 	require("../footer.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
+
+	if ( isset($_GET['erro']) ) {
+		if ( $_GET['erro'] == 'EMPTY_FIELDS' ){
+		    echo "<script>alert('Favor preencher todos os campos!')</script>";
+		}
+
+		if ( $_GET['erro'] == 'INSERT_FAIL' ){
+		    echo "<script>alert('Falha ao inserir registro!')</script>";
+		}
+	}
+
 ?>
