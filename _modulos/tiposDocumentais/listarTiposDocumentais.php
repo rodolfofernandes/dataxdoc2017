@@ -1,11 +1,9 @@
 <?php
 	session_start();
-	/*
     error_reporting(E_WARNING);
     if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
     }
-    */
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
