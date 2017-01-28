@@ -1,9 +1,11 @@
 <?php
 	session_start();
+	/*
     error_reporting(E_WARNING);
     if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
     }
+    */
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
@@ -73,7 +75,7 @@
 								<tr>
 									<td>
 										<a class="btn btn-default fa fa-pencil-square-o" style="color: blue;"></a>
-										<a class="btn btn-default fa fa-user-times" style="color: red;"></a>
+										<a class="btn btn-default fa fa-user-times" href="excluirTipoDocumental.php?id=<?php echo $key; ?>" style="color: red;"></a>
 									</td>
 									<td>
 										<span><?php echo $value['nome']; ?></span>
@@ -103,6 +105,10 @@
 
 		if ( $_GET['erro'] == 'INSERT_FAIL' ){
 		    echo "<script>alert('Falha ao inserir registro!')</script>";
+		}
+
+		if ( $_GET['erro'] == 'DELETE_FAIL' ){
+			echo "<script>alert('Falha ao excluir registro!')</script>";
 		}
 	}
 

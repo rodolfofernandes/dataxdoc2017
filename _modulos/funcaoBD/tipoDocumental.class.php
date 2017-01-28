@@ -73,10 +73,11 @@ $dados = mysqli_query($conn,$query);
 
 function excluirTipoDocumental($id)
 {
-    $query = "UPDATE tbl_tipodocumental SET ic_ativo = 0 WHERE id_usuario = $id_usuario;";
-    $dados = mysqli_query($conn,$query);
+    global $conn;
+    $query = "UPDATE tbl_tipodocumental SET excluido = 1 WHERE id = $id;";
+    $result = mysqli_query($conn, $query);
 
-    return $dados;
+    return $result;
 }
 
 ?>
