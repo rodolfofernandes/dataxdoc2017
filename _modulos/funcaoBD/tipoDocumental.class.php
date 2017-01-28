@@ -3,6 +3,8 @@ require_once("conexao.php");
 
 function consultaTipoDocumental($id)
 {
+    global $conn;
+
     $query = "SELECT * FROM tbl_tipodocumental where id_usuario = '$id_usuario'";
     $dados = mysqli_query($conn,$query);
     $row = mysqli_fetch_array($dados);
@@ -25,6 +27,7 @@ function consultaTiposDocumentais()
 
     $index = 0;
     while( $record = mysqli_fetch_array($recordSet) ){
+        $resultado[$index]['id'] = $record['id'];
         $resultado[$index]['nome'] = $record['nome'];
         $resultado[$index]['descricao'] = $record['descricao'];
         $resultado[$index]['excluido'] = $record['excluido'];
@@ -49,6 +52,7 @@ function incluirTipoDocumental($dados)
 
 function alterarTipoDocumental($id_usuario,$dadosUser)
 {
+    global $conn;
  
 $nome = $dadosUser['txtNome'].' '.$dadosUser['txtSobrenome'];
 $cpf = $dadosUser['txtCPF'];
@@ -66,9 +70,9 @@ if($dt_nasc == '--' || $dt_nasc == '')
 
 
 $query = "UPDATE tbl_tipodocumental SET cd_cpf = '$cpf',nm_usuario = '$nome', ds_email = '$email', dt_nascimento = '$dt_nasc', tp_sexo ='$sexo',ic_ativo = $ic_ativo ,tp_acesso = '$tp_acesso' WHERE id_usuario = '$id_usuario'";
-$dados = mysqli_query($conn,$query);
+$result = mysqli_query($conn,$query);
 
-    return $dados;
+    return $result;
 }
 
 function excluirTipoDocumental($id)
