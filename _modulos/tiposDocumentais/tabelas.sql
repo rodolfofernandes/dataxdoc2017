@@ -52,12 +52,12 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_indexador` (
   INDEX `fk_indexador_tipoIndexador_idx` (`tipo` ASC),
   CONSTRAINT `fk_indexador_tipoDocumental`
     FOREIGN KEY (`tipoDocumental`)
-    REFERENCES `dataXDoc`.`tbl_tipodocumental` (`id`)
+    REFERENCES `db_cliente`.`tbl_tipodocumental` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_indexador_tipoIndexador`
     FOREIGN KEY (`tipo`)
-    REFERENCES `dataXDoc`.`tbl_tipoindexador` (`id`)
+    REFERENCES `db_cliente`.`tbl_tipoindexador` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

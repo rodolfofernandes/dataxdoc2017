@@ -5,14 +5,13 @@ function consultaTipoDocumental($id)
 {
     global $conn;
 
-    $query = "SELECT * FROM tbl_tipodocumental where id_usuario = '$id_usuario'";
-    $dados = mysqli_query($conn,$query);
-    $row = mysqli_fetch_array($dados);
+    $query = "SELECT * FROM tbl_tipodocumental WHERE id = '$id'";
+    $recordSet = mysqli_query($conn, $query);
+    if (!$recordSet) return null;
+ 
+    $record = mysqli_fetch_array($recordSet);
 
-    $nome = $row['nome'];
-    $descricao = $row['descricao'];
-
-    return $row;
+    return $record;
 }
 
 function consultaTiposDocumentais()
@@ -63,14 +62,9 @@ $tp_acesso = $dadosUser['tp_acesso'];
 $ic_ativo = $dadosUser['chkAtivo'];
 
 
-if($dt_nasc == '--' || $dt_nasc == '')
-{
-    $dt_nasc = '0000-01-01';
-}
 
-
-$query = "UPDATE tbl_tipodocumental SET cd_cpf = '$cpf',nm_usuario = '$nome', ds_email = '$email', dt_nascimento = '$dt_nasc', tp_sexo ='$sexo',ic_ativo = $ic_ativo ,tp_acesso = '$tp_acesso' WHERE id_usuario = '$id_usuario'";
-$result = mysqli_query($conn,$query);
+   $query = "UPDATE tbl_tipodocumental SET cd_cpf = '$cpf',nm_usuario = '$nome', ds_email = '$email', dt_nascimento = '$dt_nasc', tp_sexo ='$sexo',ic_ativo = $ic_ativo ,tp_acesso = '$tp_acesso' WHERE id_usuario = '$id_usuario'";
+   $result = mysqli_query($conn,$query);
 
     return $result;
 }
