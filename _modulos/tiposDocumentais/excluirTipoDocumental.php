@@ -7,7 +7,7 @@
 
 	require("../funcaoBD/tipoDocumental.class.php");
 
-    $recordId = $_GET['id'];
+    $recordId = $_POST['id'];
     $result = excluirTipoDocumental($recordId);
     if (!$result){
         header("Location: listarTiposDocumentais.php?erro=DELETE_FAIL");

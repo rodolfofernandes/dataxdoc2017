@@ -1,9 +1,11 @@
 <?php
 	session_start();
     error_reporting(E_WARNING);
+	/*
     if($_SESSION['user'] == null) {
        header("Location: ../acesso/login.php");     
     }
+    */
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
@@ -13,6 +15,28 @@
     $tiposDocumentais = consultaTiposDocumentais();
 
 ?>
+
+<div class="modal fade" role="dialog" id="confirmarExclusao">
+    <div class="modal-dialog">
+
+        <form method="post" action="excluirTipoDocumental.php" id="deleteForm" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+				<span>Deseja realmente excuir esse item ?</span>
+				<input type="hidden" name="id" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" >Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Não</button>
+            </div>
+        </div>
+		</form>
+
+    </div>
+</div>
 
 <div class="modal fade" role="dialog" id="novoTipoDocumental">
     <div class="modal-dialog">
@@ -73,7 +97,7 @@
 								<tr>
 									<td>
 										<a class="btn btn-default fa fa-pencil-square-o" style="color: blue;"></a>
-										<a class="btn btn-default fa fa-user-times" href="excluirTipoDocumental.php?id=<?php echo $value['id']; ?>" style="color: red;"></a>
+										<a class="btn btn-default fa fa-user-times deleteRecord" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-target="#confirmarExclusao" style="color: red;" ></a>
 									</td>
 									<td>
 										<span><?php echo $value['nome']; ?></span>
@@ -92,6 +116,16 @@
         </section>
     </center>
 </main>
+
+<!-- Inicializa o script -->
+<script type="text/javascript" >
+	$(document).ready(function() {
+		$('.deleteRecord').on('click', function() {
+			var recordId = $(this).data('id');
+		    $('#deleteForm input[name=id]').val(recordId);
+		});
+	});
+</script>
 
 <?php
 	require("../footer.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
