@@ -67,7 +67,7 @@
 <main>
 	<center>
 		<section class="container">
-			<div class="panel panel-default">
+			<div class="panel panel-default" style="min-height: 350px;">
 			  <div class="panel-heading">
 			    <h3 class="panel-title" style="text-align: left;">Tipos Documental</h3>
 			    <a href="../principal/principal.php" class="btn btn-danger pull-right" style="margin-top: -26px;"><i class="fa fa-close" aria-hidden="true"></i></a>
@@ -121,6 +121,7 @@
 <script type="text/javascript" >
 	$(document).ready(function() {
 		$('.deleteRecord').on('click', function() {
+			// Associa o registro ao form de exclusão
 			var recordId = $(this).data('id');
 		    $('#deleteForm input[name=id]').val(recordId);
 		});
