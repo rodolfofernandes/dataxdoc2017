@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `db_cliente`.`tbl_repositorio` ;
 CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_repositorio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(150) NOT NULL,
-  `repositorioPai` INT NOT NULL,
+  `repositorioPai` INT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_repositorio_repositorio_idx` (`repositorioPai` ASC),
