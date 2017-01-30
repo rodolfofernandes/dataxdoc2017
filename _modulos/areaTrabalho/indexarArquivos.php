@@ -1,5 +1,12 @@
 <?php
 
+    function StoreDoc($filename){
+        // armazena o arquivo no banco de dados
+        return null;
+    }
+
+    $tempDir = "../areaTrabalho/_tempDir/";
+
     if( !isset($_POST['filesChecked']) ){
         echo "Selecione os arquivos que deseja indexar";
         exit;
