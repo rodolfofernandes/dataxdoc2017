@@ -33,6 +33,7 @@ USE `db_cliente`;
 INSERT INTO `db_cliente`.`tbl_tipoindexador` (`id`, `descricao`) VALUES (1, 'NUMERO');
 INSERT INTO `db_cliente`.`tbl_tipoindexador` (`id`, `descricao`) VALUES (2, 'TEXTO');
 INSERT INTO `db_cliente`.`tbl_tipoindexador` (`id`, `descricao`) VALUES (3, 'DATA');
+INSERT INTO `db_cliente`.`tbl_tipoindexador` (`id`, `descricao`) VALUES (4, 'BOOLEANO');
 
 COMMIT;
 
