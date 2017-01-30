@@ -22,8 +22,11 @@ function incluirDocumento($dados)
     $repositorio = $dados['repositorio'];
     $nome = $dados['nome'];
 
-    $query = "INSERT INTO tbl_documento (repositorio, nome, arquivo) VALUES ('$repositorio','$nome', ".base64_encode($dados['arquivo'])."); ";
+    $query = "INSERT INTO tbl_documento (repositorio, nome, arquivo) VALUES ('$repositorio','$nome', '".base64_encode($dados['arquivo'])."'); ";
     $result = mysqli_query($conn,$query);
+    if (!$result) {
+        print_r(mysqli_error_list($conn));
+    }
 
     return $result;
 }
