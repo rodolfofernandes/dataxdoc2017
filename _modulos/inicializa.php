@@ -29,7 +29,7 @@
 			});
 
             $('#fileIndex').on('click', function() {
-				IndexFiles();
+				IndexFiles($('#uploadedFiles input[type=checkbox]:checked'));
 			});
 
 			$('#fileUpload').on('click', function() {
