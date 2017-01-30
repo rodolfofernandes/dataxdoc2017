@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_repositorio` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
 -- -----------------------------------------------------
 -- Table `db_cliente`.`tbl_documento`
 -- -----------------------------------------------------
@@ -38,3 +39,26 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_documento` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `db_cliente`.`tbl_keywords`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `db_cliente`.`tbl_keywords` ;
+
+CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_keywords` (
+  `documento` INT NOT NULL,
+  `indexador` INT NOT NULL,
+  `valor` VARCHAR(250) NULL,
+  PRIMARY KEY (`documento`, `indexador`),
+  INDEX `fk_keywords_indexador_idx` (`indexador` ASC),
+  CONSTRAINT `fk_keywords_documento`
+    FOREIGN KEY (`documento`)
+    REFERENCES `db_cliente`.`tbl_documento` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_keywords_indexador`
+    FOREIGN KEY (`indexador`)
+    REFERENCES `db_cliente`.`tbl_indexador` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
