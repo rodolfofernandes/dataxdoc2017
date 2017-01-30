@@ -63,6 +63,12 @@ function FileUpload(){
     $('#uploadForm input[type=file]').trigger('click');
 }
 
-function IndexFiles(){
-    alert('Indexando arquivos...');
+function IndexFiles(filesChecked){
+    var fileArray = new Array();
+    filesChecked.each(function(index, element) {
+        fileArray.push(btoa(element.nextSibling.nodeValue));
+    });
+    var targetUrl = "../areaTrabalho/indexarArquivos.php";
+    var callParameters = { 'filesChecked[]': fileArray };
+    $.ajax({ type: 'POST', url: targetUrl, data: callParameters, success: function(response) { alert(response); UpdateContents(); }, async: false });
 }

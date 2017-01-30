@@ -121,9 +121,3 @@
 <?php
 	require("../footer.php");
 ?>
-
-
-
-
-
-
