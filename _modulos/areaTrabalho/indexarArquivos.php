@@ -1,8 +1,15 @@
 <?php
 
-    function StoreDoc($filename){
+	require("../funcaoBD/documento.class.php");
+
+    function StoreDoc($filename, $path){
         // armazena o arquivo no banco de dados
-        return null;
+        $dados['repositorio'] = 0;
+        $dados['nome'] = $filename;
+        $dados['arquivo'] = file_get_contents($path.$filename);
+
+        $result = incluirDocumento($dados);
+        return $result;
     }
 
     $tempDir = "../areaTrabalho/_tempDir/";
@@ -13,7 +20,7 @@
     }
 
     foreach($_POST['filesChecked'] as $key=>$value){
-        if( !storeDoc($tempDir.base64_decode($value) )){
+        if( !storeDoc(base64_decode($value), $tempDir )){
             echo "Não foi possivel efetuar a operação...";
             exit;
         }
