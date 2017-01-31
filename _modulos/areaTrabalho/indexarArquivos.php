@@ -4,7 +4,7 @@
 
     function StoreDoc($filename, $path){
         // armazena o arquivo no banco de dados
-        $dados['repositorio'] = 0;
+        $dados['repositorio'] = 1; //  ============>>>   criar tela de seleção de repositorio
         $dados['nome'] = $filename;
         $dados['arquivo'] = file_get_contents($path.$filename);
 
