@@ -42,7 +42,7 @@
                                 </ul>
                             </div>
                             <div class="btn-group ">
-                                <a class="btn btn-primary" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i>Rodolfo</a>
+                                <a class="btn btn-primary" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i> <?=$_SESSION['nm_usuario']?></a>
                                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
                                     <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
                                 </a>
