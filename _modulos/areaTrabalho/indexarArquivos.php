@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 	require("../funcaoBD/documento.class.php");
     require("../funcaoBD/util.class.php");
@@ -9,6 +10,7 @@
         $dados['nome'] = $filename;
         $dados['arquivo'] = file_get_contents($path.$filename);
         $dados['dataCriacao'] = getdate();
+        $dados['criadoPor'] = $_SESSION["id_usuario"];
 
         $result = incluirDocumento($dados);
         return $result;

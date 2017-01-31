@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_documento` (
   `nome` VARCHAR(150) NOT NULL,
   `arquivo` LONGBLOB NOT NULL,
   `dataCriacao` DATETIME NOT NULL,
+  `criadoPor` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_documento_repositorio_idx` (`repositorio` ASC),
