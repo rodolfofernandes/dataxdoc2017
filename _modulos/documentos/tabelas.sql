@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_keywords` (
   `indexador` INT NOT NULL,
   `valor` VARCHAR(250) NULL,
   PRIMARY KEY (`documento`, `indexador`),
+  INDEX `fk_keywords_documento_idx` (`documento` ASC),
   INDEX `fk_keywords_indexador_idx` (`indexador` ASC),
   CONSTRAINT `fk_keywords_documento`
     FOREIGN KEY (`documento`)
