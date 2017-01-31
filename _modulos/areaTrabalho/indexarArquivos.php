@@ -1,12 +1,14 @@
 <?php
 
 	require("../funcaoBD/documento.class.php");
+    require("../funcaoBD/util.class.php");
 
     function StoreDoc($filename, $path){
         // armazena o arquivo no banco de dados
         $dados['repositorio'] = 1; //  ============>>>   criar tela de seleção de repositorio
         $dados['nome'] = $filename;
         $dados['arquivo'] = file_get_contents($path.$filename);
+        $dados['dataCriacao'] = getdate();
 
         $result = incluirDocumento($dados);
         return $result;
