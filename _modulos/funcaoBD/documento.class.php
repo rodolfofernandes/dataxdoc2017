@@ -15,6 +15,28 @@ function consultaDocumento($id)
     return $record;
 }
 
+function consultaDocumentos($filter)
+{
+    global $conn;
+    $resultado = array();
+
+    $query = "SELECT * FROM tbl_documento WHERE ".$filter.";";
+    $recordSet = mysqli_query($conn,$query);
+    $recordCount = mysqli_num_rows($recordSet);
+    if ($recordCount == 0) return $resultado;
+
+    $index = 0;
+    while( $record = mysqli_fetch_array($recordSet) ){
+        $resultado[$index]['id'] = $record['id'];
+        $resultado[$index]['repositorio'] = $record['repositorio'];
+        $resultado[$index]['nome'] = $record['nome'];
+        $resultado[$index]['dataCriacao'] = $record['dataCriacao'];
+        $resultado[$index]['criadoPor'] = $record['criadoPor'];
+        $index++;
+    }
+    return $resultado;
+}
+
 function incluirDocumento($dados)
 {
     global $conn;

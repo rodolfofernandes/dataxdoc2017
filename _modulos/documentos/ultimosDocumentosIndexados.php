@@ -1,13 +1,18 @@
 <?php
-session_start();
-error_reporting(E_WARNING);
-if ($_SESSION['user'] == null) {
-    header("Location: ../acesso/login.php");
-}
+    session_start();
+    error_reporting(E_WARNING);
+    if ($_SESSION['user'] == null) {
+        header("Location: ../acesso/login.php");
+    }
 
+    require("../inicializa.php"); /* TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML */
+    require("../header.php"); /* TRAZ O MENU DO SISTEMA */
+	require("../funcaoBD/documento.class.php");
+    require_once("../funcaoBD/util.class.php");
 
-require("../inicializa.php"); /* TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML */
-require("../header.php"); /* TRA O MENO DO SISTEMA */
+    $filter = 'criadoPor = '.$_SESSION['id_usuario'].' AND dataCriacao > DATE_SUB( NOW(), INTERVAL 1 DAY)'; // Busca os documentos indexados nas últimas 24 horas
+    $documentos = consultaDocumentos($filter);
+
 ?>
 <main>
     <center>
@@ -53,22 +58,28 @@ require("../header.php"); /* TRA O MENO DO SISTEMA */
                                     <th>Tipo</th>
                                     <th>Nome</th>
                                     <th>Tipo Documental</th>
-                                    <th>Data de Indesxaçao</th>
+                                    <th>Data de Indexação</th>
                                     <th>Local de Guarda</th>
                                     <th>Local</th>
                                     <th>status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>qqqqq</td>
-                                    <td>AA</td>
-                                    <td>BBB</td>
-                                    <td>CC</td>
-                                    <td>DDD</td>
-                                    <td>WWW</td>
-                                    <td>//// </td>
-                                </tr>	
+                                <?php
+                                    foreach($documentos as $key => $value) {
+                                        ?>
+                                            <tr>
+                                                <td>AAA</td>
+                                                <td><?php echo $value['nome']; ?></td>
+                                                <td>CCC</td>
+                                                <td><?php echo $value['dataCriacao']; ?></td>
+                                                <td>EEE</td>
+                                                <td>FFF</td>
+                                                <td>GGG</td>
+                                            </tr>
+                                        <?php
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>
