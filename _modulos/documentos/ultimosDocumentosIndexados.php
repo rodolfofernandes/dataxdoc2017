@@ -13,6 +13,18 @@
     $filter = 'criadoPor = '.$_SESSION['id_usuario'].' AND dataCriacao > DATE_SUB( NOW(), INTERVAL 1 DAY)'; // Busca os documentos indexados nas últimas 24 horas
     $documentos = consultaDocumentos($filter);
 
+    $reportRows = array();
+    foreach($documentos as $key => $value) {
+        $reportRows[$key]['tipo'] = 'AAA'.$key;
+        $reportRows[$key]['nome'] = $value['nome'];
+        $reportRows[$key]['tipo_documental'] = 'CCC'.$key;
+        $reportRows[$key]['data_indexacao'] = $value['dataCriacao'];
+        $reportRows[$key]['local_guarda'] = 'EEE'.$key;
+        $reportRows[$key]['local'] = 'FFF'.$key;
+        $reportRows[$key]['status'] = 'GGG'.$key;
+
+    }
+    echo '<script>var data = '.json_encode($reportRows).';</script>';
 ?>
 <main>
     <center>
@@ -52,34 +64,20 @@
                     </div>
                     <div class="container-fluid">
                         <br>	
-                        <table class="table table-condensed">
+                        <table class="table table-condensed" id="reportTable">
                             <thead>
                                 <tr>
-                                    <th>Tipo</th>
-                                    <th>Nome</th>
-                                    <th>Tipo Documental</th>
-                                    <th>Data de Indexação</th>
-                                    <th>Local de Guarda</th>
-                                    <th>Local</th>
-                                    <th>status</th>
+                                    <th data-field="tipo" data-sortable="true">Tipo</th>
+                                    <th data-field="nome" data-sortable="true">Nome</th>
+                                    <th data-field="tipo_documental" data-sortable="true">Tipo Documental</th>
+                                    <th data-field="data_indexacao" data-sortable="true">Data de Indexação</th>
+                                    <th data-field="local_guarda" data-sortable="true">Local de Guarda</th>
+                                    <th data-field="local" data-sortable="true">Local</th>
+                                    <th data-field="status" data-sortable="true">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                    foreach($documentos as $key => $value) {
-                                        ?>
-                                            <tr>
-                                                <td>AAA</td>
-                                                <td><?php echo $value['nome']; ?></td>
-                                                <td>CCC</td>
-                                                <td><?php echo $value['dataCriacao']; ?></td>
-                                                <td>EEE</td>
-                                                <td>FFF</td>
-                                                <td>GGG</td>
-                                            </tr>
-                                        <?php
-                                    }
-                                ?>
+                                <!-- preenchido dinamicamente pelo componente javascript -->
                             </tbody>
                         </table>
                     </div>
@@ -89,5 +87,13 @@
 </main>
 
 <?php
-require("../footer.php"); /* TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML */
+    require("../footer.php"); /* TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML */
 ?>
+
+<script type="text/javascript" >
+    $(document).ready(function() {
+        $('#reportTable').bootstrapTable({
+            data: data
+        }); 
+    });
+</script>
