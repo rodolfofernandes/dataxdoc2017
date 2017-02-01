@@ -73,7 +73,7 @@
 			  <div class="panel-body">
 			  	<div class="container-fluid">
 			  		<div class="col-md-2" >
-			  			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#novoTipoDocumental" ><span class="fa fa-user-plus">Criar Novo</span></a>
+			  			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#novoTipoDocumental" ><span class="fa fa-user-plus"></span> Criar Novo</a>
 			  		</div>
 			  		<div class="col-md-10">
                     </div>
