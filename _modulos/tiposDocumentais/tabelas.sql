@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `db_cliente`.`tbl_indexador` (
   `tipoDocumental` INT NOT NULL,
   `nome` VARCHAR(65) NOT NULL,
   `tipo` INT NOT NULL,
+  `excluido` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   INDEX `fk_indexador_tipoDocumental_idx` (`tipoDocumental` ASC),

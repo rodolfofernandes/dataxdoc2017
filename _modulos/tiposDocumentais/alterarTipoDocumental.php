@@ -37,7 +37,7 @@
 <form method="post" action="alterarTipoDocumental.php?id=<?php echo $recordId; ?>&action=POST_BACK" >
     <fieldset>
         <label style="width: 50%;">Nome<br/>
-            <input type="text" name="nome" value="<?php echo $tipoDocumental['nome']; ?>" style="width: 100%;height:25px;" />
+            <input type="text" name="nome" value="<?php echo $tipoDocumental['nome']; ?>" class="form-control" />
         </label>
         <label style="width: 50%;">Descricao<br/>
             <input type="text" name="descricao" value="<?php echo $tipoDocumental['descricao']; ?>" style="width: 100%;height:25px;" />

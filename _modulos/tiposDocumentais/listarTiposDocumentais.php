@@ -67,7 +67,7 @@
 		<section class="container">
 			<div class="panel panel-default" style="min-height: 350px;">
 			  <div class="panel-heading">
-			    <h3 class="panel-title" style="text-align: left;">Tipos Documental</h3>
+			    <h3 class="panel-title" style="text-align: left;">Tipo Documental</h3>
 			    <a href="../principal/principal.php" class="btn btn-danger pull-right" style="margin-top: -26px;"><i class="fa fa-close" aria-hidden="true"></i></a>
 			  </div>
 			  <div class="panel-body">

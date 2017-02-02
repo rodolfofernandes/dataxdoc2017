@@ -18,7 +18,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4 ">
-                        <a href="#" class="btn btn-default" ><img src="../../img/bt-por-indexadores.png"/></a>
+                        <a href="listarIndexadores.php" class="btn btn-default" ><img src="../../img/bt-por-indexadores.png"/></a>
                     </div>
                     <div class="col-md-4">
                         <a href="listarTiposDocumentais.php" class="btn btn-default"><img src="../../img/bt-por-tipo-documental.png"/></a>
