@@ -57,7 +57,7 @@ function alterarTipoDocumental($id, $dados)
     $descricao = $dados['descricao'];
     $excluido = $dados['excluido'];
 
-    $query = "UPDATE tbl_tipodocumental SET nome = '$nome', descricao = '$descricao', ecluido = '$excluido' WHERE id = '$id'";
+    $query = "UPDATE tbl_tipodocumental SET nome = '$nome', descricao = '$descricao', excluido = '$excluido' WHERE id = '$id'";
     $result = mysqli_query($conn,$query);
 
     return $result;
