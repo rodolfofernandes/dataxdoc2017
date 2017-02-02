@@ -73,4 +73,23 @@ function excluirIndexador($id)
     return $result;
 }
 
+function consultaTipos()
+{
+    global $conn;
+    $resultado = array();
+
+    $query = "SELECT * FROM tbl_tipoindexador;";
+    $recordSet = mysqli_query($conn,$query);
+    $recordCount = mysqli_num_rows($recordSet);
+    if ($recordCount == 0) return $resultado;
+
+    $index = 0;
+    while( $record = mysqli_fetch_array($recordSet) ){
+        $resultado[$index]['id'] = $record['id'];
+        $resultado[$index]['descricao'] = $record['descricao'];
+        $index++;
+    }
+    return $resultado;    
+}
+
 ?>
