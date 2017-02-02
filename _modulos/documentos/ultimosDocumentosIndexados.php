@@ -14,6 +14,7 @@
     $documentos = consultaDocumentos($filter);
 
     $reportRows = array();
+    $rowCount = 0;
     foreach($documentos as $key => $value) {
         $reportRows[$key]['tipo'] = 'AAA'.$key;
         $reportRows[$key]['nome'] = $value['nome'];
@@ -22,7 +23,7 @@
         $reportRows[$key]['local_guarda'] = 'EEE'.$key;
         $reportRows[$key]['local'] = 'FFF'.$key;
         $reportRows[$key]['status'] = 'GGG'.$key;
-
+        $rowCount++;
     }
     echo '<script>var data = '.json_encode($reportRows).';</script>';
 ?>
@@ -59,7 +60,7 @@
                             </ul>
                         </div>
                         <div class="col-md-3">
-                            <label class="form-control">(0) Documentos </label>
+                            <label class="form-control"><?php echo $rowCount; ?> Documentos </label>
                         </div>	
                     </div>
                     <div class="container-fluid">
@@ -94,6 +95,7 @@
     $(document).ready(function() {
         $('#reportTable').bootstrapTable({
             data: data
-        }); 
+        });
+        $('#reportTable').bootstrapTable('togglePagination');
     });
 </script>
