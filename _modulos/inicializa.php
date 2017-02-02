@@ -17,6 +17,13 @@
 	<link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css"> <!-- CORE BOOTSTRAP -->
 	<link rel="stylesheet" href="../../bootstrap/css/bootstrap-theme.min.css"> <!-- BOOTSTRAP THEME -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.0/bootstrap-table.css">
+	<link rel="stylesheet" href="../../font-awesome/css/font-awesome.min.css"> <!-- ESTILOS PARA OS ICONES DENTRO DO SISTEMA -->
+	<link rel="stylesheet" href="../../css/principal.css"> <!-- CSS PARA ALGUNS ITENS FOI CRIADO POR NÓS -->
+	<link rel="stylesheet" type="text/css" href="../../css/modal.css"> <!-- CSS DOS MODAIS -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!-- FONTE PREDOMINANTE DO SISTEMA -->
+	<!-- FIM DE ESTILOS -->
+
+    <!-- Inicializa o script -->	
     <script type="text/javascript" >
         $(document).ready(function() {
 			$('#myModal2').on('show.bs.modal', function() {
