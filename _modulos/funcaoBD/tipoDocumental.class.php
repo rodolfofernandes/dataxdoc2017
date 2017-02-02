@@ -49,22 +49,16 @@ function incluirTipoDocumental($dados)
     return $result;
 }
 
-function alterarTipoDocumental($id_usuario,$dadosUser)
+function alterarTipoDocumental($id, $dados)
 {
     global $conn;
- 
-$nome = $dadosUser['txtNome'].' '.$dadosUser['txtSobrenome'];
-$cpf = $dadosUser['txtCPF'];
-$dt_nasc = formatadatabanco($dadosUser['txtNasc']);
-$email = $dadosUser['txtEmail'];
-$sexo = $dadosUser['rblSexo'];
-$tp_acesso = $dadosUser['tp_acesso'];
-$ic_ativo = $dadosUser['chkAtivo'];
 
+    $nome = $dados['nome'];
+    $descricao = $dados['descricao'];
+    $excluido = $dados['excluido'];
 
-
-   $query = "UPDATE tbl_tipodocumental SET cd_cpf = '$cpf',nm_usuario = '$nome', ds_email = '$email', dt_nascimento = '$dt_nasc', tp_sexo ='$sexo',ic_ativo = $ic_ativo ,tp_acesso = '$tp_acesso' WHERE id_usuario = '$id_usuario'";
-   $result = mysqli_query($conn,$query);
+    $query = "UPDATE tbl_tipodocumental SET nome = '$nome', descricao = '$descricao', ecluido = '$excluido' WHERE id = '$id'";
+    $result = mysqli_query($conn,$query);
 
     return $result;
 }

@@ -5,31 +5,48 @@
        header("Location: ../acesso/login.php");     
     }
 
-	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
-	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
 	require("../funcaoBD/tipoDocumental.class.php");
     require_once("../funcaoBD/util.class.php");
 
     $recordId = $_GET['id'];
-    $tipoDocumental = consultaTipoDocumental($recordId);
-    if ($tipoDocumental == null) {
+    $action = $_GET['action'];
+    if ($action == 'POST_BACK') {
+        // grava as alterações e retorna para a listagem
+        $dados['nome'] = $_POST['nome'];
+        $dados['descricao'] = $_POST['descricao'];
+        $dados['excluido'] = $_POST['excluido'];
+
+        $result = alterarTipoDocumental($recordId, $dados);
         header("Location: listarTiposDocumentais.php");
         exit;
     }
+
+    $tipoDocumental = consultaTipoDocumental($recordId);
+    if ($tipoDocumental == null) {
+        // falha ao recuperar registro
+    }
+
+	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
+	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
+
 ?>
 
 <h4>EDITAR MODELO</h4>
 <br/>
 
-<fieldset>
-    <label style="width: 50%;">Nome<br/>
-        <input type="text" name="nome" value="<?php echo $tipoDocumental['nome']; ?>" style="width: 100%;height:25px;" />
-    </label>
-    <label style="width: 50%;">Descricao<br/>
-        <input type="text" name="descricao" value="<?php echo $tipoDocumental['descricao']; ?>" style="width: 100%;height:25px;" />
-    </label>
-    <br/>
-</fieldset>
+<form method="post" action="alterarTipoDocumental.php?id=<?php echo $recordId; ?>&action=POST_BACK" >
+    <fieldset>
+        <label style="width: 50%;">Nome<br/>
+            <input type="text" name="nome" value="<?php echo $tipoDocumental['nome']; ?>" style="width: 100%;height:25px;" />
+        </label>
+        <label style="width: 50%;">Descricao<br/>
+            <input type="text" name="descricao" value="<?php echo $tipoDocumental['descricao']; ?>" style="width: 100%;height:25px;" />
+        </label>
+        <input type="hidden" name="excluido" value="<?php echo $tipoDocumental['excluido']; ?>" style="width: 100%;height:25px;" />
+        <br/>
+        <button type="submit" class="btn btn-primary" >Gravar</button>
+    </fieldset>
+</form>
 <br/>
 
 <button type="button" class="btn btn-primary" >Novo Indexador</button>

@@ -94,7 +94,7 @@
 							?>
 								<tr>
 									<td>
-										<a class="btn btn-default fa fa-pencil-square-o" href="alterarTipoDocumental.php?id=<?php echo $value['id']; ?>" style="color: blue;"></a>
+										<a class="btn btn-default fa fa-pencil-square-o" href="alterarTipoDocumental.php?id=<?php echo $value['id']; ?>&action=EDIT_DATA" style="color: blue;"></a>
 										<a class="btn btn-default fa fa-user-times deleteRecord" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-target="#confirmarExclusao" style="color: red;" ></a>
 									</td>
 									<td>
