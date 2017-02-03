@@ -46,10 +46,10 @@
             </div>
             <div class="modal-body">
                 <label style="width: 99%;">Nome<br/>
-                    <input type="text" name="nome" value="" style="width: 100%;height:25px;" />
+                    <input type="text" name="nome" value="" class="form-control" />
                 </label>
                 <label style="width: 99%;">Descricao<br/>
-                    <input type="text" name="descricao" value="" style="width: 100%;height:25px;" />
+                    <input type="text" name="descricao" value="" class="form-control" />
                 </label>
             </div>
             <div class="modal-footer">
