@@ -146,6 +146,16 @@
     </center>
 </main>
 
+<!-- Inicializa o script -->
+<script type="text/javascript" >
+	$(document).ready(function() {
+		$('.deleteRecord').on('click', function() {
+			// Associa o registro ao form de exclusão
+			var recordId = $(this).data('id');
+		    $('#deleteForm input[name=id]').val(recordId);
+		});
+	});
+</script>
 
 <?php
 	require("../footer.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
