@@ -66,6 +66,29 @@
 </div>
 
 
+<div class="modal fade" role="dialog" id="confirmarExclusao">
+    <div class="modal-dialog">
+
+        <form method="post" action="excluirIndexador.php" id="deleteForm" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirmação</h4>
+            </div>
+            <div class="modal-body">
+				<span>Deseja realmente excuir esse item ?</span>
+				<input type="hidden" name="id" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" >Sim</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" >Não</button>
+            </div>
+        </div>
+		</form>
+
+    </div>
+</div>
+
+
 <main>
 	<center>
 		<section class="container">
