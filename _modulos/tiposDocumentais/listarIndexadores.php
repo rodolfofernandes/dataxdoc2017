@@ -15,6 +15,8 @@
     $indexadores = consultaIndexadores();
     $tipos = consultaTipos();
 
+    $listaTiposDoc = array();
+	$listaTiposInd = array();
 ?>
 
 
@@ -27,9 +29,10 @@
             </div>
             <div class="modal-body">
                 <label style="width: 99%;">Tipo Documental<br/>
-                    <select class="form-control" >
+                    <select name="tipoDocumental" class="form-control" >
 					<?php
 					    foreach($tiposDocumentais as $key => $value) {
+							$listaTiposDoc[$value['id']] = $value['nome'];
 							echo '<option id='.$value['id'].'>'.$value['nome'].'</option>';
 						}
                     ?>
@@ -39,9 +42,10 @@
                     <input type="text" name="nome" value="" class="form-control" />
                 </label>
                 <label style="width: 99%;">Formato<br/>
-                    <select class="form-control" >
+                    <select name="tipo" class="form-control" >
 					<?php
 					    foreach($tipos as $key => $value) {
+							$listaTiposInd[$value['id']] = $value['descricao'];
 							echo '<option id='.$value['id'].'>'.$value['descricao'].'</option>';
 						}
                     ?>
@@ -95,17 +99,17 @@
                             ?>
                             	<tr>
 									<td>
-										<a class="btn btn-default fa fa-pencil-square-o" href="alterarTipoDocumental.php?id=<?php echo $value['id']; ?>&action=EDIT_DATA" style="color: blue;"></a>
+										<a class="btn btn-default fa fa-pencil-square-o" href="alterarIndexador.php?id=<?php echo $value['id']; ?>&action=EDIT_DATA" style="color: blue;"></a>
 										<a class="btn btn-default fa fa-user-times deleteRecord" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-target="#confirmarExclusao" style="color: red;" ></a>
 									</td>
 									<td>
-										<span><?php echo $value['nome']; ?></span>
+										<span><?php echo $listaTiposDoc[$value['tipoDocumental']]; ?></span>
 									</td>
 									<td>
 										<span><?php echo $value['nome']; ?></span>
 									</td>
                                     <td>
-										<span><?php echo $value['tipo']; ?></span>
+										<span><?php echo $listaTiposInd[$value['tipo']]; ?></span>
 									</td>
 								</tr>
                             <?php
@@ -118,3 +122,23 @@
         </section>
     </center>
 </main>
+
+
+<?php
+	require("../footer.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
+
+	if ( isset($_GET['erro']) ) {
+		if ( $_GET['erro'] == 'EMPTY_FIELDS' ){
+		    echo "<script>alert('Favor preencher todos os campos!')</script>";
+		}
+
+		if ( $_GET['erro'] == 'INSERT_FAIL' ){
+		    echo "<script>alert('Falha ao inserir registro!')</script>";
+		}
+
+		if ( $_GET['erro'] == 'DELETE_FAIL' ){
+			echo "<script>alert('Falha ao excluir registro!')</script>";
+		}
+	}
+
+?>

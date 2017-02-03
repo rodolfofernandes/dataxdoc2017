@@ -40,11 +40,12 @@ function incluirIndexador($dados)
 {
     global $conn;
 
+    $tipoDocumental = $dados['tipoDocumental'];
     $nome = $dados['nome'];
-    $descricao = $dados['descricao'];
+    $tipo = $dados['tipo'];
     $excluido = $dados['excluido'];
 
-    $query = "INSERT INTO tbl_indexador (nome, descricao, excluido) VALUES ('$nome','$descricao','$excluido'); ";
+    $query = "INSERT INTO tbl_indexador (tipoDocumental, nome, tipo, excluido) VALUES ('$tipoDocumental','$nome','$tipo','$excluido'); ";
     $result = mysqli_query($conn,$query);
 
     return $result;
