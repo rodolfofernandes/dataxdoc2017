@@ -19,7 +19,9 @@ function consultaIndexadores()
     global $conn;
     $resultado = array();
 
-    $query = "SELECT * FROM tbl_indexador WHERE excluido = 0 ORDER BY tipoDocumental";
+    // quando o tipoDocumental é excluído os indices não aparecem na listagem
+    $filter = "INDX.excluido = 0 AND TDOC.excluido = 0 ORDER BY tipoDocumental";
+    $query = "SELECT INDX.*  FROM tbl_indexador AS INDX JOIN tbl_tipodocumental AS TDOC ON INDX.tipoDocumental = TDOC.id WHERE ".$filter;
     $recordSet = mysqli_query($conn,$query);
     $recordCount = mysqli_num_rows($recordSet);
     if ($recordCount == 0) return $resultado;
