@@ -2,7 +2,7 @@
 	session_start();
     error_reporting(E_WARNING);
     if($_SESSION['user'] == null) {
-       header("Location: ../acesso/login.php");     
+       header("Location: ../acesso/login.php");
     }
 
 	require("../funcaoBD/indexador.class.php");
@@ -47,9 +47,9 @@
         <label style="width: 50%;">Formato<br/>
             <select name="tipo" class="form-control" >
             <?php
-                // SELECTED = $indexador['tipo'];
                 foreach($tipos as $key => $value) {
-                    echo '<option value='.$value['id'].'>'.$value['descricao'].'</option>';
+                    $attrib = ($value['id'] == $indexador['tipo']) ? 'selected' : '' ;
+                    echo '<option value='.$value['id'].' '.$attrib.' >'.$value['descricao'].'</option>';
                 }
             ?>
             </select>
