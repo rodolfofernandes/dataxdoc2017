@@ -12,7 +12,6 @@
     $action = $_GET['action'];
     if ($action == 'POST_BACK') {
         // grava as alterações e retorna para a listagem
-        $dados['tipoDocumental'] = $_POST['tipoDocumental'];
         $dados['nome'] = $_POST['nome'];
         $dados['tipo'] = $_POST['tipo'];
         $dados['excluido'] = $_POST['excluido'];
@@ -26,6 +25,10 @@
     if ($indexador == null) {
         // falha ao recuperar registro
     }
+    $tipos = consultaTipos();
+    if ($tipos== null) {
+        // falha ao recuperar tipo
+    }
 
 	require("../inicializa.php"); /*TRAZ ITENS ESSENCIAIS "CSS" "JS" HTML*/
 	require("../header.php"); /*TRAZ O MENU DO SISTEMA*/
@@ -38,16 +41,21 @@
 
 <form method="post" action="alterarIndexador.php?id=<?php echo $recordId; ?>&action=POST_BACK" >
     <fieldset>
-        <label style="width: 50%;">Tipo Documental<br/>
-            <input type="text" name="tipoDocumental" value="<?php echo $indexador['tipoDocumental']; ?>" class="form-control" />
-        </label>
         <label style="width: 50%;">Nome<br/>
             <input type="text" name="nome" value="<?php echo $indexador['nome']; ?>" class="form-control" />
         </label>
         <label style="width: 50%;">Formato<br/>
-            <input type="text" name="tipo" value="<?php echo $indexador['tipo']; ?>" class="form-control" />
+            <select name="tipo" class="form-control" >
+            <?php
+                // SELECTED = $indexador['tipo'];
+                foreach($tipos as $key => $value) {
+                    echo '<option value='.$value['id'].'>'.$value['descricao'].'</option>';
+                }
+            ?>
+            </select>
         </label>
         <input type="hidden" name="excluido" value="<?php echo $indexador['excluido']; ?>" />
+        <br/>
         <br/>
         <button type="submit" class="btn btn-primary" >Gravar</button>
     </fieldset>
