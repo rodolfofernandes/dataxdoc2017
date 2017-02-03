@@ -55,11 +55,12 @@ function alterarIndexador($id, $dados)
 {
     global $conn;
 
+    $tipoDocumental = $dados['tipoDocumental'];
     $nome = $dados['nome'];
-    $descricao = $dados['descricao'];
+    $tipo = $dados['tipo'];
     $excluido = $dados['excluido'];
 
-    $query = "UPDATE tbl_indexador SET nome = '$nome', descricao = '$descricao', excluido = '$excluido' WHERE id = '$id'";
+    $query = "UPDATE tbl_indexador SET tipoDocumental = '$tipoDocumental', nome = '$nome', tipo = '$tipo', excluido = '$excluido' WHERE id = '$id'";
     $result = mysqli_query($conn,$query);
 
     return $result;

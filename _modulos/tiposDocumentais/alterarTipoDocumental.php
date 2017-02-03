@@ -40,9 +40,9 @@
             <input type="text" name="nome" value="<?php echo $tipoDocumental['nome']; ?>" class="form-control" />
         </label>
         <label style="width: 50%;">Descricao<br/>
-            <input type="text" name="descricao" value="<?php echo $tipoDocumental['descricao']; ?>" style="width: 100%;height:25px;" />
+            <input type="text" name="descricao" value="<?php echo $tipoDocumental['descricao']; ?>" class="form-control" />
         </label>
-        <input type="hidden" name="excluido" value="<?php echo $tipoDocumental['excluido']; ?>" style="width: 100%;height:25px;" />
+        <input type="hidden" name="excluido" value="<?php echo $tipoDocumental['excluido']; ?>" />
         <br/>
         <button type="submit" class="btn btn-primary" >Gravar</button>
     </fieldset>
