@@ -33,7 +33,7 @@
 					<?php
 					    foreach($tiposDocumentais as $key => $value) {
 							$listaTiposDoc[$value['id']] = $value['nome'];
-							echo '<option id='.$value['id'].'>'.$value['nome'].'</option>';
+							echo '<option value='.$value['id'].'>'.$value['nome'].'</option>';
 						}
                     ?>
 					</select>
@@ -46,7 +46,7 @@
 					<?php
 					    foreach($tipos as $key => $value) {
 							$listaTiposInd[$value['id']] = $value['descricao'];
-							echo '<option id='.$value['id'].'>'.$value['descricao'].'</option>';
+							echo '<option value='.$value['id'].'>'.$value['descricao'].'</option>';
 						}
                     ?>
 					</select>
