@@ -100,7 +100,7 @@
 			  <div class="panel-body">
 			  	<div class="container-fluid">
 			  		<div class="col-md-2" >
-			  			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#novoIndexador" ><span class="fa fa-user-plus"></span>Criar Novo</a>
+			  			<a href="#" class="btn btn-primary" data-toggle="modal" data-target="#novoIndexador" ><span class="fa fa-plus">&nbsp;</span>Criar Novo</a>
 			  		</div>
 			  		<div class="col-md-10">
                     </div>
@@ -123,7 +123,7 @@
                             	<tr>
 									<td>
 										<a class="btn btn-default fa fa-pencil-square-o" href="alterarIndexador.php?id=<?php echo $value['id']; ?>&action=EDIT_DATA" style="color: blue;"></a>
-										<a class="btn btn-default fa fa-user-times deleteRecord" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-target="#confirmarExclusao" style="color: red;" ></a>
+										<a class="btn btn-default fa fa-trash-o deleteRecord" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-target="#confirmarExclusao" style="color: red;" ></a>
 									</td>
 									<td>
 										<span><?php echo $listaTiposDoc[$value['tipoDocumental']]; ?></span>
