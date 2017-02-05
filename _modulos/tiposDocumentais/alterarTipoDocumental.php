@@ -53,7 +53,12 @@
 <br/>
 
 <table class="table table-bordered" style="width: 70%;" id="lista">
-    <tr class="info">
-        <td>Nome do campo</td><td>Formato</td><td>Ações</td>
-    </tr>
+    <thead>
+        <tr class="info">
+            <th>Nome</th><th>Formato</th>
+        </tr>
+    </thead>
+    <tbody>
+            <td>ABCDEFGHIJK</td><td>TEXTO</td>
+    </tbody>
 </table>
