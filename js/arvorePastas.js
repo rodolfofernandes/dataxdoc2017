@@ -1,10 +1,11 @@
-	!function ($) {
+
+/*
+!function ($) {
     
-    // Le left-menu sign
-    /* for older jquery version
-    $('#left ul.nav li.parent > a > span.sign').click(function () {
-        $(this).find('i:first').toggleClass("icon-minus");
-    }); */
+    // Le left-menu sign for older jquery version
+    // $('#left ul.nav li.parent > a > span.sign').click(function () {
+    //     $(this).find('i:first').toggleClass("icon-minus");
+    // });
     
     $(document).on("click","#left ul.nav li.parent > a > span.sign", function(){          
         $(this).find('i:first').toggleClass("icon-minus");      
@@ -15,3 +16,24 @@
     $("#left ul.nav li.current").parents('ul.children').addClass("in");
 
 }(window.jQuery);
+*/
+
+function ListarArvores(){
+    var targetUrl = "../arvorePastas/listarArvores.php";
+    var callParameters = '';
+    $.ajax({ type: 'POST', url: targetUrl, data: callParameters, success: function(response) {
+        var repositoryTrees = document.getElementById("repositoryTrees");
+        repositoryTrees.innerHTML = ''; // Limpa a lista antes de recarregar
+
+        var treeList = JSON.parse(response);
+        for(var tree in treeList) {
+            $('#repositoryTrees').append(MountTree(treeList[tree]));
+            $('#repositoryTrees').append('<br/>');
+        }
+    }
+    });
+}
+
+function MountTree(tree){
+    return tree;
+}
