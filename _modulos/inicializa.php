@@ -26,6 +26,10 @@
     <!-- Inicializa o script -->	
     <script type="text/javascript" >
         $(document).ready(function() {
+			$('#myModal').on('show.bs.modal', function() {
+				ListarArvores();
+			});
+
 			$('#myModal2').on('show.bs.modal', function() {
 				UpdateContents();
 			});

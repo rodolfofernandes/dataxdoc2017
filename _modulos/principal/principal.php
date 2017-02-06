@@ -51,7 +51,7 @@
 					<div class="container">
 		<div class="container-fluid">
 			<div class="col-md-11">
-				<div id="left" class="span3" style="width: 200px;">
+				<div id="repositoryTrees" class="span3" style="width: 200px;">
 		            <ul id="menu-group-1" class="nav menu">  
 		                <li class="item-1 deeper parent active">
 		                    <a class="" href="#">
